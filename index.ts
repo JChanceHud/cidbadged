@@ -4,17 +4,16 @@ import url from 'url';
 
 const server = http.createServer(async (req, res) => {
   try {
-    const params = url.parse(req.url, true).query as {
-      domain: string,
-      link?: string
-    };
-    if (!params.domain) {
+    const params = url.parse(req.url, true);
+    // Slice the slash off
+    const domain = params.path.slice(1);
+    if (!domain) {
       res.statusCode = 400;
-      res.end('supply a domain using ?domain=commontheory.io');
+      res.end('supply a domain as the first path parameter');
       return;
     }
-    const cid = (await dnslink.resolve(params.domain)).replace('/ipfs/', '');
-    const display = `${cid.slice(0, 5)}~${cid.slice(-6, -1)}`
+    const cid = (await dnslink.resolve(domain)).replace('/ipfs/', '');
+    const display = `${cid.slice(0, 6)}~${cid.slice(-7, -1)}`
     res.setHeader('Content-Type', 'image/svg+xml');
     res.end(getBadge('cid', display));
   } catch (err) {
@@ -27,8 +26,8 @@ const server = http.createServer(async (req, res) => {
 server.listen(3000, () => console.log('Serving badges on port 3000'));
 
 function getBadge(left: string, right: string) {
-  const rightWidth = right.length * 10;
-  const leftWidth = left.length * 10;
+  const rightWidth = right.length * 9;
+  const leftWidth = left.length * 9;
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${leftWidth + rightWidth}" height="20">
   <linearGradient id="b" x2="0" y2="100%">
