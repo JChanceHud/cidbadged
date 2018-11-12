@@ -2,10 +2,16 @@ import dnslink from 'dnslink';
 import http from 'http';
 import url from 'url';
 
-const server = http.createServer(async (req, res) => {
+/**
+ * Serve a badge that shows a partial cid for a dnslinked domain
+ **/
+
+const TARGET_LENGTH = 12;
+
+http.createServer(async (req, res) => {
   try {
     const params = url.parse(req.url, true);
-    // Slice the slash off
+    // Extract the first path parameter
     const domain = params.path.split('/').filter(i => !!i)[0];
     if (!domain) {
       res.statusCode = 400;
@@ -13,7 +19,8 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     const cid = (await dnslink.resolve(domain)).replace('/ipfs/', '');
-    const display = `${cid.slice(0, 6)}~${cid.slice(-7, -1)}`
+    // Slice it taking the first and last TARGET_LENGTH/2 characters
+    const display = `${cid.slice(0, TARGET_LENGTH/2)}...${cid.slice(-1 + -1 * TARGET_LENGTH / 2, -1)}`
     res.setHeader('Content-Type', 'image/svg+xml');
     res.end(getBadge('cid', display));
   } catch (err) {
@@ -21,12 +28,10 @@ const server = http.createServer(async (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     res.end(`internal error: ${err}`);
   }
-});
-
-server.listen(3000, () => console.log('Serving badges on port 3000'));
+}).listen(3000, () => console.log('Serving badges on port 3000'));
 
 function getBadge(left: string, right: string) {
-  const rightWidth = right.length * 9;
+  const rightWidth = right.length * 8;
   const leftWidth = left.length * 9;
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${leftWidth + rightWidth}" height="20">
