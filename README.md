@@ -4,4 +4,4 @@ A package for dynamically serving badges based on dnslinked txt records.
 
 Example cid for [commontheory.io](https://commontheory.io):
 
-[![cid](https://dnslinkcid.commontheory.io/commontheory.io)](https://commontheory.io)
+[![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io/badge.svg)](https://commontheory.io)
