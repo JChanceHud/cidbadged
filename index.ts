@@ -6,7 +6,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const params = url.parse(req.url, true);
     // Slice the slash off
-    const domain = params.path.slice(1);
+    const domain = params.path.split('/').filter(i => !!i)[0];
     if (!domain) {
       res.statusCode = 400;
       res.end('supply a domain as the first path parameter');
