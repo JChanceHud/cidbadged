@@ -19,7 +19,6 @@ const server = http.createServer(async (req, res) => {
     res.setHeader('Content-Type', 'image/svg+xml');
     res.end(getBadge(link, 'latest cid', display));
   } catch (err) {
-    console.log(err);
     res.statusCode = 500;
     res.setHeader('Content-Type', 'text/plain');
     res.end(`internal error: ${err}`);
