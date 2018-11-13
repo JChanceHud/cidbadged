@@ -2,10 +2,14 @@
 
 A package for dynamically serving badges based on dnslinked txt records.
 
-Example cid for [commontheory.io](https://commontheory.io):
-
-[![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io/badge.svg)](https://commontheory.io)
-
 ## Usage
 
-Pull the docker image [`@ctheory/dnslink-cid-badge`](https://hub.docker.com/r/ctheory/dnslink-cid-badge/) and run with port 3000 exposed. Pass the domain to be evaluated as the first path parameter like this: `https://localhost:3000/commontheory.io`.
+Docker container available at [`@ctheory/dnslink-cid-badge`](https://hub.docker.com/r/ctheory/dnslink-cid-badge/) with a web server running on port 3000.
+
+Example cid for [commontheory.io](https://commontheory.io):
+
+[![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://commontheory.io)
+
+## Note
+
+This package is not maintained by, or affiliated with IPFS or Protocol Labs.
