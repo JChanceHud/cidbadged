@@ -1,4 +1,4 @@
-# dnslink-cid-badge [![Build Status](https://travis-ci.org/common-theory/dnslink-cid-badge.svg?branch=master)](https://travis-ci.org/common-theory/dnslink-cid-badge)
+# dnslink-cid-badge [![Build Status](https://travis-ci.org/common-theory/dnslink-cid-badge.svg?branch=master)](https://travis-ci.org/common-theory/dnslink-cid-badge) [![](https://images.microbadger.com/badges/image/ctheory/alpine-ipfs.svg)](https://hub.docker.com/r/ctheory/dnslink-cid-badge/ "See docker hub for more information")
 
 A package for dynamically serving badges based on dnslinked txt records.
 
@@ -8,7 +8,7 @@ Docker container available at [`@ctheory/dnslink-cid-badge`](https://hub.docker.
 
 Example cid for [commontheory.io](https://commontheory.io):
 
-[![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://commontheory.io)
+[![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://dnslink-cid-badge.commontheory.io/commontheory.io?redirect=true)
 
 ## Redirecting
 
