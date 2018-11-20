@@ -1,6 +1,6 @@
 {
   "name": "dnslink-cid-badge",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Serve an svg with a partial hash bound to a dns address",
   "main": "build/index.js",
   "scripts": {
