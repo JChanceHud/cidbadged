@@ -22,7 +22,7 @@ http.createServer(async (req, res) => {
     const href = `https://ipfs.io/ipfs/${cid}`;
     if (params.query.redirect === 'true') {
       // We're redirecting to the resolved cid
-      res.statusCode = 300;
+      res.statusCode = 301;
       res.setHeader('Location', href);
       res.end();
       return;
