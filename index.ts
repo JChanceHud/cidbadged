@@ -12,17 +12,25 @@ http.createServer(async (req, res) => {
   try {
     const params = url.parse(req.url, true);
     // Extract the first path parameter
-    const domain = params.path.split('/').filter(i => !!i)[0];
+    const domain = params.pathname.split('/').filter(i => !!i)[0];
     if (!domain) {
       res.statusCode = 400;
       res.end('supply a domain as the first path parameter');
       return;
     }
     const cid = (await dnslink.resolve(domain)).replace('/ipfs/', '');
+    const href = `https://ipfs.io/ipfs/${cid}`;
+    if (params.query.redirect === 'true') {
+      // We're redirecting to the resolved cid
+      res.statusCode = 300;
+      res.setHeader('Location', href);
+      res.end();
+      return;
+    }
     // Slice it taking the first and last TARGET_LENGTH/2 characters
     const display = `${cid.slice(0, TARGET_LENGTH/2)}...${cid.slice(-1 + -1 * TARGET_LENGTH / 2, -1)}`
     res.setHeader('Content-Type', 'image/svg+xml');
-    res.end(getBadge('cid', display, `https://ipfs.io/ipfs/${cid}`));
+    res.end(getBadge('cid', display, href));
   } catch (err) {
     res.statusCode = 500;
     res.setHeader('Content-Type', 'text/plain');

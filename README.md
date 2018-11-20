@@ -10,6 +10,10 @@ Example cid for [commontheory.io](https://commontheory.io):
 
 [![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://commontheory.io)
 
+## Redirecting
+
+The badge cid will redirect to the ipfs gateway url when passed the query parameter `redirect=true`.
+
 ## Note
 
 This package is not maintained by, or affiliated with IPFS or Protocol Labs.
