@@ -9,5 +9,5 @@ services:
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build . -t ctheory/dnslink-cid-badge:latest
-  - docker push ctheory/dnslink-cid-badge:latest
+  - docker build . -t jchancehud/cidbadged:latest
+  - docker push jchancehud/cidbadged:latest
