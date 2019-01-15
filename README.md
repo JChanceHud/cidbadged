@@ -1,4 +1,4 @@
-# cidbadged [![Build Status](https://travis-ci.org/jchancehud/cidbadged.svg?branch=master)](https://travis-ci.org/jchancehud/cidbadged) [![](https://images.microbadger.com/badges/image/jchancehud/cidbadged.svg)](https://hub.docker.com/r/jchancehud/cidbadged/ "See docker hub for more information")
+# cidbadged [![Build Status](https://travis-ci.org/JChanceHud/cidbadged.svg?branch=master)](https://travis-ci.org/JChanceHud/cidbadged) [![](https://images.microbadger.com/badges/image/jchancehud/cidbadged.svg)](https://hub.docker.com/r/jchancehud/cidbadged/ "See docker hub for more information")
 
 A http server for accessing content identifier badges. See [cidbadge](https://github.com/jchancehud/cidbadge) for examples of badges.
 
