@@ -4,11 +4,13 @@ A http server for accessing content identifier badges. See [cidbadge](https://gi
 
 ## Usage
 
-Docker container available at [`jchancehud/cidbadged`](https://hub.docker.com/r/jchancehud/cidbadged/) with a web server running on port 3000.
+Docker container available at [`jchancehud/cidbadged`](https://hub.docker.com/r/jchancehud/cidbadged/). To run a local server on port 3000 use the following:
 
-Example cid for [commontheory.io](https://commontheory.io):
+`docker run --rm -p 3000:3000 jchancehud/cidbadged`
 
-[![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://dnslink-cid-badge.commontheory.io/commontheory.io?redirect=true)
+## Example
+
+Example cid for [commontheory.io](https://commontheory.io): [![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://dnslink-cid-badge.commontheory.io/commontheory.io?redirect=true)
 
 ## API
 
