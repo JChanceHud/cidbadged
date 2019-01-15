@@ -13,6 +13,7 @@ Example cid for [commontheory.io](https://commontheory.io):
 ## API
 
 `/:cid` - Returns a badge for the supplied cid
+
 `/:domain` - Resolves for a dnslinked cid record
 
 ## Redirecting
