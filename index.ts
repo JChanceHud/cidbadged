@@ -10,13 +10,17 @@ http.createServer(async (req, res) => {
   try {
     const params = url.parse(req.url, true);
     // Extract the first path parameter
-    const domain = params.pathname.split('/').filter(i => !!i)[0];
-    if (!domain) {
+    const domainOrCid = params.pathname.split('/').filter(i => !!i)[0];
+    if (!domainOrCid) {
       res.statusCode = 400;
-      res.end('supply a domain as the first path parameter');
+      res.end('supply a domain or cid as the first path parameter');
       return;
     }
-    const cid = (await dnslink.resolve(domain)).replace('/ipfs/', '');
+    // Do a dirty check to see if it's a cid or a domain
+    // Check if there's a period in the string
+    const cid = domainOrCid.indexOf('.') !== -1
+      ? (await dnslink.resolve(domainOrCid)).replace('/ipfs/', '')
+      : domainOrCid;
     const href = `https://ipfs.io/ipfs/${cid}`;
     if (params.query.redirect === 'true') {
       // We're redirecting to the resolved cid
