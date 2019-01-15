@@ -15,6 +15,7 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
+    "cidbadge": "^0.0.2",
     "dnslink": "^0.2.0"
   }
 }
