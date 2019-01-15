@@ -1,7 +1,7 @@
 {
-  "name": "dnslink-cid-badge",
+  "name": "cidbadged",
   "version": "0.0.4",
-  "description": "Serve an svg with a partial hash bound to a dns address",
+  "description": "http server for svg content identifier badges",
   "main": "build/index.js",
   "scripts": {
     "build": "rm -rf build || true && tsc",
@@ -15,7 +15,11 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
-    "cidbadge": "0.0.3",
+    "cidbadge": "^0.0.5",
     "dnslink": "^0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JChanceHud/cidbadged.git"
   }
 }
