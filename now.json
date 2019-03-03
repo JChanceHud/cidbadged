@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": ["cidbadged.ctheory.io"],
   "builds": [
     { "src": "build/index.js", "use": "@now/node" }
   ],
