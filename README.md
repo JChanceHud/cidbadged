@@ -1,16 +1,10 @@
-# cidbadged [![Build Status](https://travis-ci.org/JChanceHud/cidbadged.svg?branch=master)](https://travis-ci.org/JChanceHud/cidbadged) [![](https://images.microbadger.com/badges/image/jchancehud/cidbadged.svg)](https://hub.docker.com/r/jchancehud/cidbadged/ "See docker hub for more information")
+# cidbadged
 
-A http server for accessing content identifier badges. See [cidbadge](https://github.com/jchancehud/cidbadge) for examples of badges.
-
-## Usage
-
-Docker container available at [`jchancehud/cidbadged`](https://hub.docker.com/r/jchancehud/cidbadged/). To run a local server on port 3000 use the following:
-
-`docker run --rm -p 3000:3000 jchancehud/cidbadged`
+A zeit lambda for accessing content identifier badges. See [cidbadge](https://github.com/jchancehud/cidbadge) for examples of badges.
 
 ## Example
 
-Example cid for [commontheory.io](https://commontheory.io): [![cid](https://dnslink-cid-badge.commontheory.io/commontheory.io)](https://dnslink-cid-badge.commontheory.io/commontheory.io?redirect=true)
+Example cid for [commontheory.io](https://commontheory.io): [![cid](https://cidbadged.ctheory.io/commontheory.io)](https://cidbadged.ctheory.io/commontheory.io?redirect=true)
 
 ## API
 
